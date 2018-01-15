@@ -6,7 +6,7 @@
 /*   By: rlossy <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/08 10:02:15 by rlossy       #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/09 15:26:15 by rlossy      ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/15 17:18:05 by rlossy      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,7 +31,6 @@ void	ft_get_width(t_param *p, const char *format, va_list *ap, int *index)
 			i++;
 	}
 	*index = i;
-	//printf("\n index = %d, width = %d\n", i, p->flag[0]);
 }
 
 void	ft_get_prec(t_param *p, const char *format, va_list *ap, int *index)
@@ -52,7 +51,6 @@ void	ft_get_prec(t_param *p, const char *format, va_list *ap, int *index)
 			i++;
 	}
 	*index = i;
-	//printf("\n index = %d, prec = %d\n", i, p->flag[1]);
 }
 
 void	ft_width_arg(t_param *p, int *val)

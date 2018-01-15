@@ -6,7 +6,7 @@
 /*   By: rlossy <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/08 13:31:12 by rlossy       #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/09 15:27:03 by rlossy      ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/15 17:16:41 by rlossy      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,8 +67,7 @@ size_t					ft_lf_type(const char *format, va_list *ap);
 char					*ft_get_format(char *tmp, char *fmt, size_t *index);
 size_t					ft_get_type_char(const char *format, va_list *ap,
 		char *tmp);
-size_t					ft_get_type_int(const char *format, va_list *ap,
-		char *tmp);
+size_t					ft_get_type_int(const char *format, va_list *ap);
 
 /*
 **	Functions that look for flags
@@ -86,8 +85,9 @@ void					ft_init_flag(t_param *p);
 void					ft_fulfill_nb(t_param p, int base);
 size_t					ft_lf_fulfill_nb(t_param p, int base);
 void					ft_width_arg(t_param *p, int *val);
-void					ft_get_width(t_param *p, const char *format, va_list *ap,
-		int *index);
+void					ft_get_width(t_param *p, const char *format,
+		va_list *ap, int *index);
+int						ft_regular_wid(t_param p, size_t len);
 
 /*
 **	Functions that take care of precision
@@ -96,28 +96,35 @@ void					ft_get_width(t_param *p, const char *format, va_list *ap,
 void					ft_fulfill_prec(t_param p, int base);
 void					ft_get_prec(t_param *p, const char *format, va_list *ap,
 		int *index);
-void					ft_lf_fulfill_prec(t_param *p, size_t *len, int base);
+void					ft_lf_fulfill_prec(t_param *p, size_t *len, int base,
+		int flow);
 
 /*
 **	Functions that take care of prefix
 */
 
-size_t					ft_print_prefix(int base, int flaw);
-size_t					ft_lf_prefix(t_param p, int base, int flow);
-int						ft_regular_index(t_param p, int base);
+size_t					ft_print_prefix(int base, int flaw, t_param *p);
+void					ft_print_base(t_param p, int base, int flaw);
+int						ft_regular_prefix(t_param p, int base);
+
+
+/*
+**	Functions to print
+*/
+
+void					ft_display_start(t_param *p, size_t *len, int base,
+		int flaw);
+void					ft_display_end(t_param *p);
+void					ft_display_base(t_param p, size_t *len, int base, int flaw);
 
 /*
 **	Int-type Checkers
 */
 
-size_t					ft_check_d(t_param p, va_list *ap, size_t len,
-		char *fmt);
-size_t					ft_check_x(t_param p, va_list *ap, size_t len,
-		char *fmt);
-size_t					ft_check_wx(t_param p, va_list *ap, size_t len,
-		char *fmt);
-size_t					ft_check_o(t_param p, va_list *ap, size_t len,
-		char *fmt);
+size_t					ft_check_d(t_param p, va_list *ap, size_t len);
+size_t					ft_check_x(t_param p, va_list *ap, size_t len);
+size_t					ft_check_wx(t_param p, va_list *ap, size_t len);
+size_t					ft_check_o(t_param p, va_list *ap, size_t len);
 size_t					ft_check_u(t_param p, va_list *ap, size_t len);
 
 /*

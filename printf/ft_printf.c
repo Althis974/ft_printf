@@ -6,7 +6,7 @@
 /*   By: rlossy <marvin@le-101.fr>                  +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/08 13:22:52 by rlossy       #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/08 10:23:25 by rlossy      ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/01/15 15:18:13 by rlossy      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,8 +43,8 @@ size_t		ft_lf_type(const char *format, va_list *ap)
 		{
 			f.fmt = ft_get_format(f.tmp, f.fmt, &i);
 			ft_putnstr(f.start, f.tmp - f.start);
-			f.len += ft_get_type_int(f.tmp, ap, f.fmt) +
-				ft_get_type_char(f.tmp, ap, f.fmt);
+			f.len += ft_get_type_int(f.tmp, ap)
+				+ ft_get_type_char(f.tmp, ap, f.fmt);
 			f.tmp += i;
 			f.start = f.tmp;
 		}
@@ -85,7 +85,7 @@ size_t		ft_get_type_char(const char *format, va_list *ap, char *fmt)
 	return (len);
 }
 
-size_t		ft_get_type_int(const char *format, va_list *ap, char *fmt)
+size_t		ft_get_type_int(const char *format, va_list *ap)
 {
 	t_param p;
 	size_t	len;
@@ -97,13 +97,13 @@ size_t		ft_get_type_int(const char *format, va_list *ap, char *fmt)
 	while (*format++)
 	{
 		if (*format == 'd' || *format == 'D' || *format == 'i')
-			return (ft_check_d(p, ap, len, fmt));
+			return (ft_check_d(p, ap, len));
 		else if (*format == 'x')
-			return (ft_check_x(p, ap, len, fmt));
+			return (ft_check_x(p, ap, len));
 		else if (*format == 'o' || *format == 'O')
-			return (ft_check_o(p, ap, len, fmt));
+			return (ft_check_o(p, ap, len));
 		else if (*format == 'X')
-			return (ft_check_wx(p, ap, len, fmt));
+			return (ft_check_wx(p, ap, len));
 		else if (*format == 'u' || *format == 'U')
 			return (ft_check_u(p, ap, len));
 		if ((FMT(*format)) || FMT2(*format) || (FMT3(*format)))
