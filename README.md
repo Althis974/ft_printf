@@ -1,6 +1,6 @@
 # FT_PRINTF
 
-# Sujet
+## Sujet
 
 • Vous devez recoder la fonction printf de la librairie C.
 • Votre fonction s’appelera ft_printf et sera prototypée de la même façon que
@@ -14,7 +14,7 @@ C.
 • Vous devez gérer la précision
 • Vous devez gérer les flags hh h l ll j z
 
-# Sujet - Partie bonus
+## Sujet - Partie bonus
 
   Voici quelques idées de bonus intéressants à réaliser, voire même utiles. Vous pouvez
 évidemment ajouter des bonus de votre invention, qui seront évalués à la discrétion de
